@@ -9,6 +9,10 @@ import Dashboard from './Dashboard';
 import AlertsNew from './AlertsNew';  
 
 class App extends Component{
+	componentDidMount(){
+		this.props.fetchUser(); 
+	}
+
 	render(){
 		return(
 			<div>
@@ -25,4 +29,4 @@ class App extends Component{
 	}
 }
 
-export default connect(null, )(App); 
+export default connect(null, actions)(App); 
