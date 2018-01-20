@@ -4,6 +4,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport'); 
 const keys = require('./config/api-keys')
 require('./models/User');
+require('./models/Alert');
 require('./services/passport'); 
 
 mongoose.connect(keys.mongoURI); 
@@ -21,6 +22,7 @@ app.use(passport.initialize());
 app.use(passport.session()); 
 
 require('./routes/authRoutes')(app); 
+require('./routes/alertRoutes')(app);
 
 const PORT = process.env.PORT || 8000; 
 

@@ -8,20 +8,21 @@ class Header extends Component{
 			case null:
 				return; 
 			case false:
-				return <li className="col-md-4"><a href="/auth/google">Login with Google</a></li>; 
+				return <a href="/auth/google">Login with Google</a>;
 			default:
-				return <li className="col-md-4"><a href="/api/logout">Logout</a></li>;  
+				return <div key="2"><a href="/api/logout">Logout</a></div>;
+
 		}
 	}
 	render(){
 		console.log(this.props); 
 		return (
-			<ul className="row">
-				<Link 
-				to={this.props.auth ? '/dashboard' : '/'}
-				className="col-md-8">Header</Link>
-				<li className="col-md-4"><a>{this.renderLogin()}</a></li>
-			</ul>
+			<div>
+				<h3><Link 
+					to={this.props.auth ? '/dashboard' : '/'}
+					className="col-md-8">Header</Link></h3>
+					<h3 className="col-md-4">{this.renderLogin()}</h3>
+			</div>
 		); 
 	}
 		
